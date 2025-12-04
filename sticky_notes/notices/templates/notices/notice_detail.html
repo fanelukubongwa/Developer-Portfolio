@@ -1,0 +1,19 @@
+<!--Template for viewing notice details-->
+{% extends 'base.html' %}
+{% block title %}
+  Notice Board - {{ notice.title }}
+{% endblock %}
+{% block content %}
+  <h2>
+    {{ notice.title }}
+  </h2>
+  <p>
+    {{ notice.content }}
+  </p>
+  <p>
+    Created at: {{ notice.created_at }}
+  </p>
+  <a href="{% url 'notice_update' pk=notice.pk %}">Update Notice</a>
+  <a href="{% url 'notice_delete' pk=notice.pk %}">Delete notice</a>
+  <a href="{% url 'notice_list' %}">Back to Notice List</a>
+{% endblock %}

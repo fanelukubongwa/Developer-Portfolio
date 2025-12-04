@@ -1,0 +1,23 @@
+<!-- Template for listing notices -->
+{% extends 'base.html' %}
+{% block title %}
+  Notice Board - {{ page_title }}
+{% endblock %}
+{% block content %}
+  <h2>
+    {{ page_title }}
+  </h2>
+  <ul>
+    <a href="{% url 'notice_create' %}">Add notice</a>
+    {% for notice in notices %}
+      <li>
+        <a href="{% url 'notice_detail' pk=notice.pk %}">
+            {{ notice.title }}
+        </a>
+        <p>
+          {{ notice.content }}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+{% endblock %}
